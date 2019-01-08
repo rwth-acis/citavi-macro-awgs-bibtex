@@ -31,8 +31,12 @@ public static class CitaviMacro
 				
 				Person thirdAuthor = reference.Authors[2];
 				
-				// now fix BibTeXKey
-				reference.BibTeXKey = reference.BibTeXKey.Insert(3, thirdAuthor.LastName.Substring(1, 1));
+				// check if the third lastname has more than one character...
+				if (thirdAuthor.LastName.Length > 1)
+				{
+					// now fix BibTeXKey
+					reference.BibTeXKey = reference.BibTeXKey.Insert(3, thirdAuthor.LastName.Substring(1, 1));
+				}
 			}
 				
 		}
